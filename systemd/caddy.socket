@@ -1,0 +1,9 @@
+[Socket]
+ListenStream=127.0.0.1:80
+# ListenStream=[::]:80
+# ListenStream=[::]:443
+# ListenDatagram=[::]:443
+# BindIPv6Only=both
+
+[Install]
+WantedBy=sockets.target

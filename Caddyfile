@@ -1,0 +1,16 @@
+{
+    admin unix//run/admin.sock
+}
+
+http:// {
+    bind fd/3
+    handle /api/* {
+        reverse_proxy backend:5678
+    }
+
+    handle {
+        reverse_proxy frontend:5678
+    }
+
+    log
+}

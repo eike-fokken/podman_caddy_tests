@@ -1,0 +1,20 @@
+version: "3.9"
+name: "podman_test"
+services:
+  backend:
+    image: hashicorp/http-echo
+    container_name: backend
+    command: ["-text=hello backend"]
+    networks:
+      - testnet
+
+  frontend:
+    image: hashicorp/http-echo
+    container_name: frontend
+    command: ["-text=hello frontend"]
+    networks:
+      - testnet
+
+networks:
+  testnet:
+    driver: bridge

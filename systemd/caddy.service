@@ -1,0 +1,11 @@
+[Unit]
+Description=Rootless Caddy container via systemd socket
+Requires=caddy.socket
+After=caddy.socket
+
+[Service]
+User=1000
+StandardOutput=journal
+StandardError=journal
+ExecStart=/usr/bin/podman run --rm  --name caddy  --network podman_test_testnet -v /home/eike/git/podman_tests/Caddyfile:/etc/caddy/Caddyfile:ro docker.io/caddy:2
+
